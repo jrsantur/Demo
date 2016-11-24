@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">"CajaPiura"</string>
+    <string name="title_activity_main">Caja Piura</string>
+
+
+    <string name="elegir_tarjeta">Seleciona una tarjeta</string>
+    <string name="num_tar">Numero de Tarjeta</string>
+
+
+    <string name="tarjeta_coodenadas_ayuda">Para acceder a Caja Piura Internet y para autorizar sus operaciones debera ingresar la coordenada que se le solicite  </string>
+    <string-array name="nombre_tarjetas">
+        <item>Débito Piura Cash</item>
+        <item>Débito Piura Cash Visa Clasica</item>
+        <item>Débito Piura Cash Visa Oro</item>
+        <item>Débito Piura Cash Visa Clasica Chip</item>
+        <item>Débito Piura Cash Visa Oro Chip</item>
+    </string-array>
+
+
+    <string-array name="columna_coordenada">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+    </string-array>
+
+    <string-array name="fila_coordenada">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_detalle_cuenta">DetalleCuentaActivity</string>
+    <string name="title_activity_maps">Map</string>
+
+</resources>

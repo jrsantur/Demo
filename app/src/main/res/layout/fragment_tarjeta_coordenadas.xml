@@ -1,0 +1,84 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cajapiura.cajapiurasmart.fragments.TarjetaCoordenadasFragment"
+    android:layout_gravity="center">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/igm_coordenadas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:src="@drawable/coordenadas"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/igm_coordenadas"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13dp">
+
+            <TextView
+                android:text="Ingrese los numero de la coordenada:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/text_coordenada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/colorBotonIngresar"
+                android:text="111"
+                android:textSize="18dp"/>
+
+        </LinearLayout>
+
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/num_coordenada"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:maxLength="3"
+            android:hint="Coordenada"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/custom_spinner_background"
+            android:inputType="number"
+            />
+
+        <Button
+            android:text="Ingresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/num_coordenada"
+            android:layout_marginTop="36dp"
+            android:id="@+id/btn_ingresar"
+            android:textColor="@android:color/white"
+            android:background="@color/colorBotonIngresar"
+            android:layout_alignLeft="@+id/linearLayout2"
+            android:layout_alignStart="@+id/linearLayout2"
+            android:layout_alignRight="@+id/linearLayout2"
+            android:layout_alignEnd="@+id/linearLayout2" />
+
+
+    </RelativeLayout>
+
+
+</FrameLayout>
