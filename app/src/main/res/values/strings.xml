@@ -41,7 +41,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_detalle_cuenta">DetalleCuentaActivity</string>
+    <string name="title_activity_detalle_cuenta">Detalle de Cuenta</string>
     <string name="title_activity_maps">Map</string>
 
 </resources>

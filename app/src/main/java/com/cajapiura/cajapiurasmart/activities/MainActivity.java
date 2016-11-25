@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 
 import com.cajapiura.cajapiurasmart.Objetos.Cuenta;
 import com.cajapiura.cajapiurasmart.R;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     ArrayList<Cuenta> data;
+    RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        final RecyclerView mRecyclerView = (RecyclerView)findViewById(R.id.listas_cuentas);
+        mRecyclerView = (RecyclerView)findViewById(R.id.listas_cuentas);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setHasFixedSize(true);
         ListaCuentasAdapter adapter;
@@ -86,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
         adapter = new ListaCuentasAdapter(getApplicationContext(),data);
         adapter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,6 +133,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        /*
+        TableLayout tl1 = (TableLayout)findViewById(R.id.data_servicio);
+        TableRow row = (TableRow)tl1.findViewById(R.id.row_1_1);
+        row.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(MainActivity.this, DetalleCuentaActivity.class);
+                startActivity(i);
+            }
+        });
+
+        */
+
+
+
 
     }
 

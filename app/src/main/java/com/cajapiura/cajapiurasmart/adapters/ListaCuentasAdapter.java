@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,13 @@ public class ListaCuentasAdapter extends RecyclerView.Adapter<ListaCuentasAdapte
     Context context;
     ArrayList<Cuenta> data;
     private View.OnClickListener listener;
+    private ArrayList<Cuenta> cuenta_ahorro_corriente;
+    private ArrayList<Cuenta> cuenta_ahorro_plazo_fijo;
+    private ArrayList<Cuenta> cuenta_cts;
+    private ArrayList<Cuenta> cuenta_credito;
+    int counter_servic = 0;
+    ArrayList<ArrayList<Cuenta>> dataTotal;
+
 
 
     public ListaCuentasAdapter(){
@@ -53,76 +61,77 @@ public class ListaCuentasAdapter extends RecyclerView.Adapter<ListaCuentasAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        TextView tipo_cuenta = new TextView(context);
-        TextView cuenta = new TextView(context);
-        TextView disponible = new TextView(context);
-        TableLayout data_servic ;
-        String servic = "80";
-
-                if(servic == "80"){
-
-                    data_servic = new TableLayout(context);
-                    data_servic.setLayoutParams( new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
-
-                    if(position ==0){
-
-                        TableRow row = new TableRow(context);
-                        row.setLayoutParams(new TableRow.LayoutParams(
-                                TableRow.LayoutParams.MATCH_PARENT,
-                                TableRow.LayoutParams.WRAP_CONTENT));
-                        row.setId(100+position);
-                        Log.e("cabecera", "Se escribio cabecera");
-                        tipo_cuenta.setText("Ahorro Corriente");
-                        tipo_cuenta.setTextSize(18);
-                        tipo_cuenta.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-                        tipo_cuenta.setTextColor(Color.WHITE);
-                        row.setPadding(4,4,4,4);
-                        row.setBackgroundColor(context.getResources().getColor(R.color.colorBotonIngresar));
-                        row.addView(tipo_cuenta, new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-                        Log.e("cabecer", ""+position);
-
-                        data_servic.addView(row, new TableLayout.LayoutParams(
-                                TableLayout.LayoutParams.MATCH_PARENT,
-                                TableLayout.LayoutParams.WRAP_CONTENT));
-
-                    }
-                    else {
-
-                        Log.e("cabecera", "Se escribio cuerpo");
-                        TableRow row = new TableRow(context);
-                        row.setLayoutParams(new TableRow.LayoutParams(
-                                TableRow.LayoutParams.MATCH_PARENT,
-                                TableRow.LayoutParams.WRAP_CONTENT));
-                        row.setId(100+position);
-                        cuenta.setId(100+position);
-                        cuenta.setText("80-01-111111");
-                        cuenta.setTextColor(Color.BLACK);
-                        cuenta.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-                        row.addView(cuenta,  new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-
-                        disponible.setId(200+position);
-                        disponible.setText("1000.00");
-                        disponible.setTextColor(Color.BLACK);
-                        disponible.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-                        row.addView(disponible , new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-
-                        data_servic.addView(row, new TableLayout.LayoutParams(
-                                TableLayout.LayoutParams.MATCH_PARENT,
-                                TableLayout.LayoutParams.WRAP_CONTENT));
-
-                    }
-
-                    holder.cardView.addView(data_servic);
-                }
 
 
+            for(int i=0 ; i<cuenta_ahorro_corriente.size(); i++){
+
+                TableRow.LayoutParams layoutFila=new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
+                TableRow.LayoutParams layoutTipoCuenta=new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
+                TableRow.LayoutParams layoutCuenta=new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+
+            }
+
+
+
+
+
+        /*
+        //TableRow.LayoutParams layoutResultado=new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+
+        boolean imprimio_cabecera = false;
+        if(data.get(position).getServicio()=="210"){
+
+             if(data.get(position).getServicio()=="210"){
+
+                 if(imprimio_cabecera==false){
+                    TableRow row = new TableRow(context);
+                    row.setBackgroundColor(context.getResources().getColor(R.color.colorBotonIngresar));
+                    row.setLayoutParams(layoutFila);
+                    TextView tipo_cuenta  = new TextView(context);
+                    tipo_cuenta.setText("Ahorro Corriente");
+                    tipo_cuenta.setGravity(Gravity.LEFT);
+                    tipo_cuenta.setPadding(4,4,4,4);
+                    tipo_cuenta.setTextColor(Color.WHITE);
+                    tipo_cuenta.setLayoutParams(layoutTipoCuenta);
+                    holder.datos.addView(row);
+
+                    Log.e("ListasCuentasAdapter" , "Se imprimio cabecera");
+                 }
+                 else {
+
+                     TableRow row = new TableRow(context);
+                     row.setBackgroundColor(context.getResources().getColor(R.color.colorBotonIngresar));
+                     row.setLayoutParams(layoutFila);
+                     row.setLayoutParams(layoutFila);
+                     if(position%2==0){
+                         row.setBackgroundColor(context.getResources().getColor(R.color.fondo_celda));
+                     }
+                     //cuenta
+                     TextView cuenta = new TextView(context);
+                     cuenta.setTextColor(Color.BLACK);
+                     cuenta.setPadding(4,4,4,4);
+                     cuenta.setLayoutParams(layoutTipoCuenta);
+                     cuenta.setGravity(Gravity.LEFT);
+                     cuenta.setText(data.get(position).getServicio().toString()+"-"+
+                             data.get(position).getMoneda().toString()+"-"+
+                             data.get(position).getCuenta());
+                     row.removeAllViews();
+                     row.addView(cuenta);
+                     holder.datos.addView(row);
+                     Log.e("ListasCuentasAdapter" , "Se imprimio cuerpo");
+                 }
+
+             }
+
+        }
+        */
 
 
     }
 
     @Override
     public int getItemCount() {
-        return 2;
+        return dataTotal.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -131,6 +140,7 @@ public class ListaCuentasAdapter extends RecyclerView.Adapter<ListaCuentasAdapte
         //TextView disponible_cuenta;
         //TableLayout data_servic;
         CardView cardView;
+        TableLayout datos;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -138,7 +148,8 @@ public class ListaCuentasAdapter extends RecyclerView.Adapter<ListaCuentasAdapte
             //numero_cuenta = (TextView)itemView.findViewById(R.id.numero_cuenta);
             //disponible_cuenta = (TextView)itemView.findViewById(R.id.disponible_cuenta);
             //data_servic = (TableLayout)itemView.findViewById(R.id.data_servicio);
-            cardView = (CardView)itemView.findViewById(R.id.cardViewTable);
+            //cardView = (CardView)itemView.findViewById(R.id.cardViewTable);
+            datos  = (TableLayout)itemView.findViewById(R.id.data_servicio);
 
 
         }
@@ -153,6 +164,48 @@ public class ListaCuentasAdapter extends RecyclerView.Adapter<ListaCuentasAdapte
     public void onClick(View view) {
         if(listener != null)
             listener.onClick(view);
+    }
+
+
+    public void agruparCuentasServic(ArrayList<Cuenta> data){
+        this.data = data;
+        cuenta_ahorro_corriente = new ArrayList<>();
+        for(int i = 0; i<data.size(); i++){
+            if(data.get(i).getServicio()=="210" ||  data.get(i).getServicio()=="110" ){
+                cuenta_ahorro_corriente.add(data.get(i));
+            }
+
+            if(data.get(i).getServicio()=="310" ){
+                cuenta_ahorro_plazo_fijo.add(data.get(i));
+            }
+
+            if(data.get(i).getServicio()=="430" ){
+                cuenta_cts.add(data.get(i));
+            }
+
+            if(data.get(i).getServicio()=="80" ||  data.get(i).getServicio()=="96" ){
+                cuenta_credito.add(data.get(i));
+            }
+        }
+        dataTotal.add(cuenta_ahorro_corriente);
+        dataTotal.add(cuenta_ahorro_plazo_fijo);
+        dataTotal.add(cuenta_cts);
+        dataTotal.add(cuenta_credito);
+    }
+
+    public void counterServic(){
+        if(cuenta_ahorro_corriente.size() !=0 ){
+            counter_servic++;
+        }
+        if(cuenta_ahorro_plazo_fijo.size()!=0){
+            counter_servic++;
+        }
+        if(cuenta_cts.size()!=0){
+            counter_servic++;
+        }
+        if (cuenta_credito.size()!=0){
+            counter_servic++;
+        }
     }
 
 }

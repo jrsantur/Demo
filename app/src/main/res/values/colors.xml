@@ -8,4 +8,5 @@
     <color name="colorBotonIngresar">#FFB612</color>
     <color name="colorAccent">#005BAB</color>
     <color name="colorSplash">#005BAB</color>
+    <color name="fondo_celda">#F5F4F0</color>
 </resources>

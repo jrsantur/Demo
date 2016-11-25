@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginRight="8dp"
-    android:layout_marginLeft="8dp">
+    android:layout_marginRight="24dp"
+    android:layout_marginLeft="24dp"
+    >
 
 
     <android.support.v7.widget.RecyclerView
@@ -15,5 +17,256 @@
         >
 
     </android.support.v7.widget.RecyclerView>
+
+    <!--
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:elevation="10dp"
+        card_view:cardCornerRadius="4dp"
+        android:padding="8dp">
+
+        <TableLayout
+            android:id="@+id/data_servicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:layout_column="1"
+                android:background="@color/colorBotonIngresar">
+
+                <TextView
+                    android:id="@+id/text_tipo_cuenta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:padding="4dp"
+                    android:text="Ahorro Corriente"/>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_1_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/numero_cuenta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="210-01-2837765"
+                        />
+
+                    <TextView
+                        android:id="@+id/disponible_cuenta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="4dp"
+                        android:textSize="20sp"
+                        android:padding="4dp"
+                        android:layout_gravity="right"
+                        android:layout_weight="2"
+                        android:text="S/. 10,005.64"
+                        android:gravity="right"
+                        android:textStyle="bold"/>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_2_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F5F4F0"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/numero_cuent2a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="210-01-2837765"
+                    />
+
+                <TextView
+                    android:id="@+id/disponible_cuenta2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:textSize="20sp"
+                    android:padding="4dp"
+                    android:layout_gravity="right"
+                    android:layout_weight="2"
+                    android:text="S/. 10,005.64"
+                    android:gravity="right"
+                    android:textStyle="bold"/>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_3_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/numero_cuenta3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="210-01-2837765"
+                    />
+
+                <TextView
+                    android:id="@+id/disponible_cuenta3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:textSize="20sp"
+                    android:padding="4dp"
+                    android:layout_gravity="right"
+                    android:layout_weight="2"
+                    android:text="S/. 10,005.64"
+                    android:gravity="right"
+                    android:textStyle="bold"/>
+            </TableRow>
+
+        </TableLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewTable_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:elevation="10dp"
+        card_view:cardCornerRadius="4dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp">
+
+        <TableLayout
+            android:id="@+id/data_servicio_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:layout_column="1"
+                android:background="@color/colorBotonIngresar">
+
+                <TextView
+                    android:id="@+id/text_tipo_cuenta_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:padding="4dp"
+                    android:text="Plazo fijo"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/numero_cuenta_3_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="310-01-2837765"
+                    />
+
+                <TextView
+                    android:id="@+id/disponible_cuenta_3_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:textSize="20sp"
+                    android:padding="4dp"
+                    android:layout_gravity="right"
+                    android:layout_weight="2"
+                    android:text="S/. 60,005.64"
+                    android:gravity="right"
+                    android:textStyle="bold"/>
+            </TableRow>
+
+        </TableLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewTable_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:elevation="10dp"
+        card_view:cardCornerRadius="4dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp">
+
+        <TableLayout
+            android:id="@+id/data_servicio_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:layout_column="1"
+                android:background="@color/colorBotonIngresar">
+
+                <TextView
+                    android:id="@+id/text_tipo_cuenta_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:padding="4dp"
+                    android:text="CTS"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/numero_cuenta_2_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="210-01-2837765"
+                    />
+
+                <TextView
+                    android:id="@+id/disponible_cuenta_2_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:textSize="20sp"
+                    android:padding="4dp"
+                    android:layout_gravity="right"
+                    android:layout_weight="2"
+                    android:text="S/. 60,005.64"
+                    android:gravity="right"
+                    android:textStyle="bold"/>
+            </TableRow>
+
+        </TableLayout>
+    </android.support.v7.widget.CardView>
+    -->
 
 </LinearLayout>
