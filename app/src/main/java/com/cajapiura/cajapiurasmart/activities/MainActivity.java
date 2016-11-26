@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         Cuenta cuenta4 = new Cuenta();
         cuenta4.setServicio("210");
         cuenta4.setMoneda("02");
-        cuenta4.setCuenta("44444444");
+        cuenta4.setCuenta("4444444");
         cuenta4.setMonto(125.36);
         data.add(cuenta4);
 

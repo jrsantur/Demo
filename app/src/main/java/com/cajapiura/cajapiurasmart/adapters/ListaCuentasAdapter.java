@@ -2,7 +2,9 @@ package com.cajapiura.cajapiurasmart.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
@@ -38,6 +40,8 @@ public class ListaCuentasAdapter extends RecyclerView.Adapter<ListaCuentasAdapte
     int counter_servic = 0;
     ArrayList<ArrayList<Cuenta>> dataTotal;
 
+    boolean imprimio_tabla_ahorros = false ;
+
 
 
     public ListaCuentasAdapter(){
@@ -47,6 +51,8 @@ public class ListaCuentasAdapter extends RecyclerView.Adapter<ListaCuentasAdapte
     public ListaCuentasAdapter(Context context , ArrayList<Cuenta> data){
         this.context = context;
         this.data = data;
+        dataTotal = new ArrayList<>();
+        agruparCuentasServic(data);
     }
 
 
@@ -62,13 +68,84 @@ public class ListaCuentasAdapter extends RecyclerView.Adapter<ListaCuentasAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
 
 
+            TableRow.LayoutParams layoutFila = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
+            TableRow.LayoutParams layoutTipoCuenta = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+            TableRow.LayoutParams layoutCuenta = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+            TableRow.LayoutParams layoutDisponible =new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 2.0f);
 
-            for(int i=0 ; i<cuenta_ahorro_corriente.size(); i++){
 
-                TableRow.LayoutParams layoutFila=new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
-                TableRow.LayoutParams layoutTipoCuenta=new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
-                TableRow.LayoutParams layoutCuenta=new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+        if(cuenta_ahorro_corriente.size()!=0 ){
+                if(imprimio_tabla_ahorros==false){
+                    TableRow row = new TableRow(context);
+                    for(int i=0 ; i<cuenta_ahorro_corriente.size()+1; i++){
+                        if(i==0){
+                            //cabecera
+                            row.setBackgroundColor(context.getResources().getColor(R.color.colorBotonIngresar));
+                            row.setLayoutParams(layoutFila);
+                            TextView tipo_cuenta  = new TextView(context);
+                            tipo_cuenta.setText("Ahorro Corriente");
+                            tipo_cuenta.setGravity(Gravity.LEFT);
+                            tipo_cuenta.setPadding(8,8,8,8);
+                            tipo_cuenta.setTextSize(20);
+                            tipo_cuenta.getTextSize();
+                            tipo_cuenta.setTextColor(Color.WHITE);
+                            tipo_cuenta.setLayoutParams(layoutTipoCuenta);
+                            row.addView(tipo_cuenta);
+                            holder.datos.addView(row);
+                        }else{
+                            row = new TableRow(context);
+                            row.setLayoutParams(layoutFila);
+                            if(i%2==0 && i!=0){
+                                row.setBackgroundColor(context.getResources().getColor(R.color.fondo_celda));
+                            }
+                            //cuenta
+                            TextView cuenta = new TextView(context);
+                            cuenta.setTextColor(Color.BLACK);
+                            cuenta.setPadding(16,16,16,16);
+                            cuenta.setLayoutParams(layoutCuenta);
+                            cuenta.setGravity(Gravity.LEFT);
+                            cuenta.setTextSize(18);
+                            cuenta.setText(
+                                    cuenta_ahorro_corriente.get(i-1).getServicio()+" - "+
+                                            cuenta_ahorro_corriente.get(i-1).getMoneda()+" - "+
+                                            cuenta_ahorro_corriente.get(i-1).getCuenta()
+                            );
 
+
+                            //saldo disponible
+                            TextView disponible = new TextView(context);
+                            disponible.setLayoutParams(layoutDisponible);
+                            disponible.setTextColor(Color.BLACK);
+                            cuenta.setPadding(16,16,16,16);
+                            disponible.setTextSize(20);
+                            disponible.setGravity(Gravity.RIGHT);
+                            String denominacion_moneda = "";
+                            if (cuenta_ahorro_corriente.get(i-1).getMoneda()=="01")
+                                denominacion_moneda = "S/. ";
+                            else
+                                denominacion_moneda = "$ ";
+                            disponible.setText(denominacion_moneda+cuenta_ahorro_corriente.get(i-1).getMonto());
+                            disponible.setTypeface(Typeface.DEFAULT_BOLD);
+                            disponible.setPadding(16,16,24,16);
+                            //agregando views
+                            row.removeAllViews();
+
+                            row.addView(cuenta);
+                            row.addView(disponible);
+                            holder.datos.addView(row);
+                            Log.e("ListasCuentasAdapter" , "Se imprimio cuerpo");
+                        }
+
+                        imprimio_tabla_ahorros = true;
+                    }
+                }
+
+            }else {
+                if(cuenta_ahorro_plazo_fijo.size()!=0){
+                    for(int i=0 ; i<cuenta_ahorro_corriente.size()+1; i++){
+
+                    }
+                }
             }
 
 
@@ -170,6 +247,9 @@ public class ListaCuentasAdapter extends RecyclerView.Adapter<ListaCuentasAdapte
     public void agruparCuentasServic(ArrayList<Cuenta> data){
         this.data = data;
         cuenta_ahorro_corriente = new ArrayList<>();
+        cuenta_ahorro_plazo_fijo = new ArrayList<>();
+        cuenta_cts = new ArrayList<>();
+        cuenta_credito = new ArrayList<>();
         for(int i = 0; i<data.size(); i++){
             if(data.get(i).getServicio()=="210" ||  data.get(i).getServicio()=="110" ){
                 cuenta_ahorro_corriente.add(data.get(i));
