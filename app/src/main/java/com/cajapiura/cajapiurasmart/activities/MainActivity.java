@@ -55,34 +55,38 @@ public class MainActivity extends AppCompatActivity {
         data = new ArrayList<>();
 
         Cuenta cuenta1 = new Cuenta();
-        cuenta1.setServicio("210");
-        cuenta1.setMoneda("02");
-        cuenta1.setCuenta("1111111");
+        cuenta1.setTipo_cuenta("Ahorro Plazo fijo");
+        cuenta1.setServicio("310");
+        cuenta1.setMoneda("01");
+        cuenta1.setCuenta("9361572");
         cuenta1.setMonto(125.36);
         data.add(cuenta1);
 
 
         Cuenta cuenta2 = new Cuenta();
+        cuenta2.setTipo_cuenta("Ahorro Corriente");
         cuenta2.setServicio("210");
         cuenta2.setMoneda("01");
-        cuenta2.setCuenta("2222222");
+        cuenta2.setCuenta("2837765");
         cuenta2.setMonto(125.36);
         data.add(cuenta2);
 
 
 
         Cuenta cuenta3 = new Cuenta();
-        cuenta3.setServicio("210");
+        cuenta3.setTipo_cuenta("Cuentas de credito");
+        cuenta3.setServicio("80");
         cuenta3.setMoneda("02");
-        cuenta3.setCuenta("3333333");
+        cuenta3.setCuenta("3301680");
         cuenta3.setMonto(125.36);
         data.add(cuenta3);
 
 
         Cuenta cuenta4 = new Cuenta();
-        cuenta4.setServicio("210");
-        cuenta4.setMoneda("02");
-        cuenta4.setCuenta("4444444");
+        cuenta4.setTipo_cuenta("CTS");
+        cuenta4.setServicio("430");
+        cuenta4.setMoneda("01");
+        cuenta4.setCuenta("6397433");
         cuenta4.setMonto(125.36);
         data.add(cuenta4);
 

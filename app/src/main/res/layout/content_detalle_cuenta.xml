@@ -14,151 +14,16 @@
     tools:showIn="@layout/activity_detalle_cuenta">
 
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="1dp"
-        android:paddingBottom="1dp"
-        android:paddingTop="1dp"
-        android:paddingRight="1dp"
-        android:background="#F5F4F0"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:id="@+id/textView9"
-            android:text="Codigo CCI:"
-            android:textSize="@dimen/text_size"
-            android:layout_below="@+id/textView4"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView9"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="8dp"
-            android:id="@+id/textView11"
-            android:text="Tipo de Cuenta:"
-            android:textSize="@dimen/text_size"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView12"
-            android:text="Ahorro Corriente M.N."
-            android:textSize="@dimen/text_size"
-            android:layout_alignBaseline="@+id/textView11"
-            android:layout_alignBottom="@+id/textView11"
-            android:layout_alignLeft="@+id/textView10"
-            android:layout_alignStart="@+id/textView10" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView11"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="8dp"
-            android:id="@+id/textView13"
-            android:text="Sdo. Disponible:"
-            android:textSize="@dimen/text_size"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView13"
-            android:layout_alignLeft="@+id/textView12"
-            android:layout_alignStart="@+id/textView12"
-            android:id="@+id/textView14"
-            android:text="152.36"
-            android:textSize="@dimen/text_size"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView13"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="8dp"
-            android:id="@+id/textView15"
-            android:text="Sdo. Contable:"
-            android:textSize="@dimen/text_size"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView15"
-            android:layout_alignLeft="@+id/textView14"
-            android:layout_alignStart="@+id/textView14"
-            android:id="@+id/textView16"
-            android:text="152.36"
-            android:textSize="@dimen/text_size"/>
-
-        <TextView
-            android:text="210-01-2837765"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="18dp"
-            android:textSize="@dimen/text_size"
-            android:id="@+id/textView8"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/textView13"
-            android:layout_toEndOf="@+id/textView13"
-            android:layout_marginStart="20dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView10"
-            android:text="12345678901234567890"
-            android:textSize="@dimen/text_size"
-            android:maxLines="2"
-            android:layout_above="@+id/textView11"
-            android:layout_alignLeft="@+id/textView8"
-            android:layout_alignTop="@+id/textView9"
-            android:layout_alignStart="@+id/textView8" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView4"
-            android:textSize="@dimen/text_size"
-            android:text="Numero Cuenta: "
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-
-    </RelativeLayout>
-
-    <TextView
-        android:text="Tus movimientos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:layout_below="@+id/relativeLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="11dp" />
-
     <TableLayout
+        android:id="@+id/tb_movimeintos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:stretchColumns="*"
         android:background="@android:color/black"
         android:layout_marginTop="11dp"
         android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
 
         <TableRow
             android:id="@+id/cabecera"
@@ -438,6 +303,144 @@
 
 
     </TableLayout>
+
+    <TextView
+        android:text="Tus movimientos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignLeft="@id/tb_movimeintos"
+        android:layout_alignStart="@id/tb_movimeintos" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        android:paddingRight="8dp"
+        android:background="#F5F4F0"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignRight="@+id/tb_movimeintos"
+        android:layout_alignEnd="@+id/tb_movimeintos">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:id="@+id/textView9"
+            android:text="Codigo CCI:"
+            android:textSize="@dimen/text_size"
+            android:layout_below="@+id/textView4"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView9"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:id="@+id/textView11"
+            android:text="Tipo de Cuenta:"
+            android:textSize="@dimen/text_size"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView12"
+            android:text="Ahorro Corriente M.N."
+            android:textSize="@dimen/text_size"
+            android:layout_alignBaseline="@+id/textView11"
+            android:layout_alignBottom="@+id/textView11"
+            android:layout_alignLeft="@+id/textView10"
+            android:layout_alignStart="@+id/textView10" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView11"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:id="@+id/textView13"
+            android:text="Sdo. Disponible:"
+            android:textSize="@dimen/text_size"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView13"
+            android:layout_alignLeft="@+id/textView12"
+            android:layout_alignStart="@+id/textView12"
+            android:id="@+id/textView14"
+            android:text="152.36"
+            android:textSize="@dimen/text_size"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView13"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:id="@+id/textView15"
+            android:text="Sdo. Contable:"
+            android:textSize="@dimen/text_size"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView15"
+            android:layout_alignLeft="@+id/textView14"
+            android:layout_alignStart="@+id/textView14"
+            android:id="@+id/textView16"
+            android:text="152.36"
+            android:textSize="@dimen/text_size"/>
+
+        <TextView
+            android:text="210-01-2837765"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:textSize="@dimen/text_size"
+            android:id="@+id/textView8"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/textView13"
+            android:layout_toEndOf="@+id/textView13"
+            android:layout_marginStart="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView10"
+            android:text="12345678901234567890"
+            android:textSize="@dimen/text_size"
+            android:maxLines="2"
+            android:layout_above="@+id/textView11"
+            android:layout_alignLeft="@+id/textView8"
+            android:layout_alignTop="@+id/textView9"
+            android:layout_alignStart="@+id/textView8" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:textSize="@dimen/text_size"
+            android:text="Numero Cuenta: "
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

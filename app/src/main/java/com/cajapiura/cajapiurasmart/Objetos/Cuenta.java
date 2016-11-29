@@ -8,6 +8,7 @@ public class Cuenta {
 
 
     String tipo_cuenta;
+    String descripcion_cuenta;
     String servicio;
     String moneda;
     String cuenta;
@@ -15,6 +16,14 @@ public class Cuenta {
 
     public String getTipo_cuenta() {
         return tipo_cuenta;
+    }
+
+    public String getDescripcion_cuenta() {
+        return descripcion_cuenta;
+    }
+
+    public void setDescripcion_cuenta(String descripcion_cuenta) {
+        this.descripcion_cuenta = descripcion_cuenta;
     }
 
     public void setTipo_cuenta(String tipo_cuenta) {

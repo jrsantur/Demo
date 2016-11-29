@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':SetfiLink', ':j8583-1.5.3', ':xSocket-2.8.15'

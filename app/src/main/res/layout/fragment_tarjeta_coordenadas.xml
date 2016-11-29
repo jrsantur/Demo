@@ -67,6 +67,7 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/custom_spinner_background"
             android:inputType="number"
+            android:cursorVisible="false"
             />
 
         <Button

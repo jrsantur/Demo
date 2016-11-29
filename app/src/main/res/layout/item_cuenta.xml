@@ -16,13 +16,15 @@
         android:gravity="center"
         android:elevation="10dp"
         card_view:cardCornerRadius="4dp"
+        android:layout_marginBottom="8dp"
         android:padding="4dp">
 
 
         <TableLayout
             android:id="@+id/data_servicio"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            />
 
         <!--
             <TableRow

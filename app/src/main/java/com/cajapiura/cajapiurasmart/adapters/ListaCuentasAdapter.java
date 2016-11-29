@@ -3,6 +3,7 @@ package com.cajapiura.cajapiurasmart.adapters;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Credentials;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cajapiura.cajapiurasmart.Objetos.Cuenta;
+import com.cajapiura.cajapiurasmart.Objetos.CuentaServico;
 import com.cajapiura.cajapiurasmart.R;
 
 import org.w3c.dom.Text;
@@ -38,10 +40,8 @@ public class ListaCuentasAdapter extends RecyclerView.Adapter<ListaCuentasAdapte
     private ArrayList<Cuenta> cuenta_cts;
     private ArrayList<Cuenta> cuenta_credito;
     int counter_servic = 0;
-    ArrayList<ArrayList<Cuenta>> dataTotal;
-
-    boolean imprimio_tabla_ahorros = false ;
-
+    ArrayList<ArrayList<Cuenta> > dataTotal;
+    ArrayList<CuentaServico> datos;
 
 
     public ListaCuentasAdapter(){
@@ -68,141 +68,87 @@ public class ListaCuentasAdapter extends RecyclerView.Adapter<ListaCuentasAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
 
 
-            TableRow.LayoutParams layoutFila = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
-            TableRow.LayoutParams layoutTipoCuenta = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
-            TableRow.LayoutParams layoutCuenta = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
-            TableRow.LayoutParams layoutDisponible =new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 2.0f);
+        TableRow.LayoutParams layoutFila = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
+        TableRow.LayoutParams layoutTipoCuenta = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+        TableRow.LayoutParams layoutCuenta = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+        TableRow.LayoutParams layoutDisponible =new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 2.0f);
 
+        if(cuenta_ahorro_corriente.size()!=0 || cuenta_cts.size()!=0 || cuenta_ahorro_plazo_fijo.size()!=0 | cuenta_credito.size()!=0){
 
-        if(cuenta_ahorro_corriente.size()!=0 ){
-                if(imprimio_tabla_ahorros==false){
-                    TableRow row = new TableRow(context);
-                    for(int i=0 ; i<cuenta_ahorro_corriente.size()+1; i++){
-                        if(i==0){
-                            //cabecera
-                            row.setBackgroundColor(context.getResources().getColor(R.color.colorBotonIngresar));
-                            row.setLayoutParams(layoutFila);
-                            TextView tipo_cuenta  = new TextView(context);
-                            tipo_cuenta.setText("Ahorro Corriente");
-                            tipo_cuenta.setGravity(Gravity.LEFT);
-                            tipo_cuenta.setPadding(8,8,8,8);
-                            tipo_cuenta.setTextSize(20);
-                            tipo_cuenta.getTextSize();
-                            tipo_cuenta.setTextColor(Color.WHITE);
-                            tipo_cuenta.setLayoutParams(layoutTipoCuenta);
-                            row.addView(tipo_cuenta);
-                            holder.datos.addView(row);
-                        }else{
-                            row = new TableRow(context);
-                            row.setLayoutParams(layoutFila);
-                            if(i%2==0 && i!=0){
-                                row.setBackgroundColor(context.getResources().getColor(R.color.fondo_celda));
-                            }
-                            //cuenta
-                            TextView cuenta = new TextView(context);
-                            cuenta.setTextColor(Color.BLACK);
-                            cuenta.setPadding(16,16,16,16);
-                            cuenta.setLayoutParams(layoutCuenta);
-                            cuenta.setGravity(Gravity.LEFT);
-                            cuenta.setTextSize(18);
-                            cuenta.setText(
-                                    cuenta_ahorro_corriente.get(i-1).getServicio()+" - "+
-                                            cuenta_ahorro_corriente.get(i-1).getMoneda()+" - "+
-                                            cuenta_ahorro_corriente.get(i-1).getCuenta()
-                            );
-
-
-                            //saldo disponible
-                            TextView disponible = new TextView(context);
-                            disponible.setLayoutParams(layoutDisponible);
-                            disponible.setTextColor(Color.BLACK);
-                            cuenta.setPadding(16,16,16,16);
-                            disponible.setTextSize(20);
-                            disponible.setGravity(Gravity.RIGHT);
-                            String denominacion_moneda = "";
-                            if (cuenta_ahorro_corriente.get(i-1).getMoneda()=="01")
-                                denominacion_moneda = "S/. ";
-                            else
-                                denominacion_moneda = "$ ";
-                            disponible.setText(denominacion_moneda+cuenta_ahorro_corriente.get(i-1).getMonto());
-                            disponible.setTypeface(Typeface.DEFAULT_BOLD);
-                            disponible.setPadding(16,16,24,16);
-                            //agregando views
-                            row.removeAllViews();
-
-                            row.addView(cuenta);
-                            row.addView(disponible);
-                            holder.datos.addView(row);
-                            Log.e("ListasCuentasAdapter" , "Se imprimio cuerpo");
-                        }
-
-                        imprimio_tabla_ahorros = true;
-                    }
-                }
-
-            }else {
-                if(cuenta_ahorro_plazo_fijo.size()!=0){
-                    for(int i=0 ; i<cuenta_ahorro_corriente.size()+1; i++){
-
-                    }
-                }
-            }
-
-
-
-
-
-        /*
-        //TableRow.LayoutParams layoutResultado=new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
-
-        boolean imprimio_cabecera = false;
-        if(data.get(position).getServicio()=="210"){
-
-             if(data.get(position).getServicio()=="210"){
-
-                 if(imprimio_cabecera==false){
-                    TableRow row = new TableRow(context);
+            int tamaño = dataTotal.get(position).size();
+            TableRow row = new TableRow(context);
+            for(int i=0 ; i<tamaño+1; i++){
+                if(i==0){
+                    //cabecera
                     row.setBackgroundColor(context.getResources().getColor(R.color.colorBotonIngresar));
                     row.setLayoutParams(layoutFila);
                     TextView tipo_cuenta  = new TextView(context);
-                    tipo_cuenta.setText("Ahorro Corriente");
+                    tipo_cuenta.setText(dataTotal.get(position).get(i).getTipo_cuenta().toString());
                     tipo_cuenta.setGravity(Gravity.LEFT);
-                    tipo_cuenta.setPadding(4,4,4,4);
+                    tipo_cuenta.setPadding(8,8,8,8);
+                    tipo_cuenta.setTextSize(19);
+                    tipo_cuenta.getTextSize();
                     tipo_cuenta.setTextColor(Color.WHITE);
+                    tipo_cuenta.setTypeface(null, Typeface.BOLD);
                     tipo_cuenta.setLayoutParams(layoutTipoCuenta);
+                    row.addView(tipo_cuenta);
+                    row.setClickable(false);
+                    holder.datos.addView(row);
+                }else{
+                    row = new TableRow(context);
+                    row.setLayoutParams(layoutFila);
+                    if(i%2==0 && i!=0){
+                        row.setBackgroundColor(context.getResources().getColor(R.color.fondo_celda));
+                    }
+                    //cuenta
+                    TextView cuenta = new TextView(context);
+                    cuenta.setTextColor(Color.BLACK);
+                    cuenta.setPadding(16,16,16,16);
+                    cuenta.setLayoutParams(layoutCuenta);
+                    cuenta.setGravity(Gravity.LEFT);
+                    cuenta.setTextSize(17);
+                    cuenta.setText(
+                            dataTotal.get(position).get(i-1).getServicio()+" - "+
+                                    dataTotal.get(position).get(i-1).getMoneda()+" - "+
+                                    dataTotal.get(position).get(i-1).getCuenta()
+                    );
+
+                    //saldo disponible
+                    TextView disponible = new TextView(context);
+                    disponible.setLayoutParams(layoutDisponible);
+                    disponible.setTextColor(Color.BLACK);
+                    disponible.setPadding(16,16,16,16);
+                    disponible.setTextSize(19);
+                    disponible.setGravity(Gravity.RIGHT);
+                    String denominacion_moneda = "";
+                    if ( dataTotal.get(position).get(i-1).getMoneda()=="01")
+                        denominacion_moneda = "S/. ";
+                    else
+                        denominacion_moneda = "$ ";
+                    disponible.setText(denominacion_moneda+ dataTotal.get(position).get(i-1).getMonto());
+                    disponible.setTypeface(Typeface.DEFAULT_BOLD);
+                    disponible.setPadding(16,16,24,16);
+
+                    //agregando views
+                    row.removeAllViews();
+                    row.addView(cuenta);
+                    row.addView(disponible);
+                    row.setClickable(true);
                     holder.datos.addView(row);
 
-                    Log.e("ListasCuentasAdapter" , "Se imprimio cabecera");
-                 }
-                 else {
+                    row.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
 
-                     TableRow row = new TableRow(context);
-                     row.setBackgroundColor(context.getResources().getColor(R.color.colorBotonIngresar));
-                     row.setLayoutParams(layoutFila);
-                     row.setLayoutParams(layoutFila);
-                     if(position%2==0){
-                         row.setBackgroundColor(context.getResources().getColor(R.color.fondo_celda));
-                     }
-                     //cuenta
-                     TextView cuenta = new TextView(context);
-                     cuenta.setTextColor(Color.BLACK);
-                     cuenta.setPadding(4,4,4,4);
-                     cuenta.setLayoutParams(layoutTipoCuenta);
-                     cuenta.setGravity(Gravity.LEFT);
-                     cuenta.setText(data.get(position).getServicio().toString()+"-"+
-                             data.get(position).getMoneda().toString()+"-"+
-                             data.get(position).getCuenta());
-                     row.removeAllViews();
-                     row.addView(cuenta);
-                     holder.datos.addView(row);
-                     Log.e("ListasCuentasAdapter" , "Se imprimio cuerpo");
-                 }
+                        }
+                    });
 
-             }
+                    Log.e("ListasCuentasAdapter" , "Se imprimio cuerpo");
+                }
+
+            }
 
         }
-        */
-
 
     }
 
@@ -271,21 +217,6 @@ public class ListaCuentasAdapter extends RecyclerView.Adapter<ListaCuentasAdapte
         dataTotal.add(cuenta_ahorro_plazo_fijo);
         dataTotal.add(cuenta_cts);
         dataTotal.add(cuenta_credito);
-    }
-
-    public void counterServic(){
-        if(cuenta_ahorro_corriente.size() !=0 ){
-            counter_servic++;
-        }
-        if(cuenta_ahorro_plazo_fijo.size()!=0){
-            counter_servic++;
-        }
-        if(cuenta_cts.size()!=0){
-            counter_servic++;
-        }
-        if (cuenta_credito.size()!=0){
-            counter_servic++;
-        }
     }
 
 }
