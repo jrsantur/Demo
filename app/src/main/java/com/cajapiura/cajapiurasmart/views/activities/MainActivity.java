@@ -1,4 +1,4 @@
-package com.cajapiura.cajapiurasmart.activities;
+package com.cajapiura.cajapiurasmart.views.activities;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -11,12 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 
 import com.cajapiura.cajapiurasmart.Objetos.Cuenta;
 import com.cajapiura.cajapiurasmart.R;
-import com.cajapiura.cajapiurasmart.adapters.ListaCuentasAdapter;
+import com.cajapiura.cajapiurasmart.views.adapters.ListaCuentasAdapter;
 
 import java.util.ArrayList;
 
@@ -50,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         data = new ArrayList<>();
 
 
-        //data
+        //d-a-t-a-
 
         data = new ArrayList<>();
 
@@ -91,10 +89,6 @@ public class MainActivity extends AppCompatActivity {
         data.add(cuenta4);
 
 
-
-
-
-
         adapter = new ListaCuentasAdapter(getApplicationContext(),data);
         adapter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -150,8 +145,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         */
-
-
 
 
     }

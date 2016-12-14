@@ -1,9 +1,7 @@
-package com.cajapiura.cajapiurasmart.fragments;
+package com.cajapiura.cajapiurasmart.views.fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import com.cajapiura.cajapiurasmart.R;
-import com.cajapiura.cajapiurasmart.activities.MainActivity;
+import com.cajapiura.cajapiurasmart.views.activities.MainActivity;
 import java.util.Random;
 
 

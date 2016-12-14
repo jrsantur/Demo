@@ -5,9 +5,14 @@ package com.cajapiura.model.webservice;
  */
 
 import com.cajapiura.model.entidades.Cliente;
+import com.cajapiura.model.webservice.response.TramaResponseBody;
+import com.cajapiura.model.webservice.response.TramaResponseEnvelope;
 
 import java.util.List;
+
+import retrofit.http.Body;
 import retrofit.http.GET;
+import retrofit.http.POST;
 import retrofit.http.Path;
 import retrofit.http.Query;
 import rx.Observable;
@@ -15,8 +20,7 @@ import rx.Observable;
 public interface CajaMobileApi {
 
     //link de la web servis del metodo
-    @GET("/cliente")                        //metodo que ejecuta la consulta
-    Observable<Cliente> getCharacters (@Query("trama") String  trama);
-
+    @POST("/provcioanl")                        //metodo que ejecuta la consulta
+    Observable<TramaResponseEnvelope> requesTramaInfo (@Body TramaResponseBody body);
 
 }

@@ -1,4 +1,4 @@
-package com.cajapiura.cajapiurasmart.activities;
+package com.cajapiura.cajapiurasmart.views.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

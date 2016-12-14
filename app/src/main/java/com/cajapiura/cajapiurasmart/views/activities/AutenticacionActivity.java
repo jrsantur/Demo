@@ -1,4 +1,4 @@
-package com.cajapiura.cajapiurasmart.activities;
+package com.cajapiura.cajapiurasmart.views.activities;
 
 import android.annotation.TargetApi;
 import android.os.Build;
@@ -8,8 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.cajapiura.cajapiurasmart.R;
-import com.cajapiura.cajapiurasmart.fragments.AutenticacionFragment;
-import com.cajapiura.cajapiurasmart.fragments.TarjetaCoordenadasFragment;
+import com.cajapiura.cajapiurasmart.views.fragments.AutenticacionFragment;
+import com.cajapiura.cajapiurasmart.views.fragments.TarjetaCoordenadasFragment;
 
 public class AutenticacionActivity extends AppCompatActivity implements AutenticacionFragment.onAutenticacionButtonPress{
 

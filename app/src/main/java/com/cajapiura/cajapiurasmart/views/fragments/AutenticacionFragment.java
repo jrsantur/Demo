@@ -1,4 +1,4 @@
-package com.cajapiura.cajapiurasmart.fragments;
+package com.cajapiura.cajapiurasmart.views.fragments;
 
 import android.app.Activity;
 import android.content.res.Resources;
@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-import com.cajapiura.cajapiurasmart.adapters.CustomSpinnerAdapter;
+import com.cajapiura.cajapiurasmart.views.adapters.CustomSpinnerAdapter;
 import com.cajapiura.cajapiurasmart.R;
 
 import java.util.ArrayList;

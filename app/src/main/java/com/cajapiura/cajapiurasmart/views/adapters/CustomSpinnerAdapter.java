@@ -1,4 +1,4 @@
-package com.cajapiura.cajapiurasmart.adapters;
+package com.cajapiura.cajapiurasmart.views.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,7 +10,6 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.cajapiura.cajapiurasmart.R;
-import com.cajapiura.cajapiurasmart.activities.MainActivity;
 
 import java.util.ArrayList;
 

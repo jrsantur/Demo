@@ -1,11 +1,9 @@
-package com.cajapiura.cajapiurasmart.adapters;
+package com.cajapiura.cajapiurasmart.views.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.net.Credentials;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
@@ -15,16 +13,12 @@ import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cajapiura.cajapiurasmart.Objetos.Cuenta;
 import com.cajapiura.cajapiurasmart.Objetos.CuentaServico;
 import com.cajapiura.cajapiurasmart.R;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Junior on 23/11/2016.
