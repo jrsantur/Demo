@@ -3,6 +3,8 @@ package com.cajapiura.cajapiurasmart;
 import android.app.Application;
 
 import com.cajapiura.cajapiurasmart.injector.componentes.AppComponent;
+
+import com.cajapiura.cajapiurasmart.injector.componentes.DaggerAppComponent;
 import com.cajapiura.cajapiurasmart.injector.modulos.AppModule;
 
 /**
@@ -16,15 +18,15 @@ public class CajaMobileAplicacion extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //initializeInjector();
+        initializeInjector();
     }
-    /*
+
     private void initializeInjector() {
         mAppComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
                 .build();
     }
-    */
+
 
     public AppComponent getAppComponent() {
         return mAppComponent;

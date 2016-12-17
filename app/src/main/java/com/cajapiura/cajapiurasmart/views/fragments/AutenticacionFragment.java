@@ -11,22 +11,104 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 
+import com.cajapiura.cajapiurasmart.mvp.presenters.AutenticationPresenter;
+import com.cajapiura.cajapiurasmart.mvp.views.AutenticacionView;
 import com.cajapiura.cajapiurasmart.views.adapters.CustomSpinnerAdapter;
 import com.cajapiura.cajapiurasmart.R;
+import com.cajapiura.model.entity.TramaEntity;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
 
-public class AutenticacionFragment extends Fragment {
+
+public class AutenticacionFragment extends Fragment  implements AutenticacionView{
 
     onAutenticacionButtonPress mCallback;
     private static final String ARG_PARAM1 = "param1";
     public static boolean ingreso ;
     AppCompatSpinner spinner;
     Button ingresar;
+    ProgressBar progressBar;
     View rootVoew;
+    @Inject
+    AutenticationPresenter autenticationPresenter;
+
+    @Inject
+    AutenticationPresenter mAutenticationPresenter;
+
+
+
+    @Override
+    public void bindCharacterList(TramaEntity trama) {
+
+    }
+
+    @Override
+    public void showLoadingView() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideLoadingView() {
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void hideLoadingIndicator() {
+
+    }
+
+    @Override
+    public void showEmptyIndicator() {
+
+    }
+
+    @Override
+    public void hideEmptyIndicator() {
+
+    }
+
+    @Override
+    public void showConnectionErrorMessage() {
+
+    }
+
+    @Override
+    public void showLightError() {
+
+    }
+
+    @Override
+    public void hideErrorView() {
+
+    }
+
+    @Override
+    public void showUknownErrorMessage() {
+
+    }
+
+    @Override
+    public void showFragmentCoordenadas() {
+
+    }
+
+    @Override
+    public void showCuentasScreen(String trama) {
+
+    }
+
+    @Override
+    public void sendTrama(String trama) {
+
+    }
+
+
+
 
 
     public  interface onAutenticacionButtonPress{
@@ -51,6 +133,7 @@ public class AutenticacionFragment extends Fragment {
         if (getArguments() != null) {
             ingreso = getArguments().getBoolean(ARG_PARAM1);
         }
+
     }
 
     @Override
@@ -59,10 +142,10 @@ public class AutenticacionFragment extends Fragment {
         // Inflate the layout for this fragment
         rootVoew = inflater.inflate(R.layout.content_autenticacion, container, false);
         spinner = (AppCompatSpinner)rootVoew.findViewById(R.id.list_tarjetas);
-
+        progressBar  = (ProgressBar)rootVoew.findViewById(R.id.progressBar);
         ingresar = (Button) rootVoew.findViewById(R.id.btnIngresar);
 
-
+        initializePresenter();
         populateSpinnerTarjetas();
         //aqui es donde se procedera a la autenticacion con el web servis
         ingreso = true;
@@ -150,6 +233,11 @@ public class AutenticacionFragment extends Fragment {
             throw new ClassCastException(activity.toString()
                     + " must implement OnHeadlineSelectedListener");
         }
+    }
+
+    private void initializePresenter() {
+        autenticationPresenter.attachView(this);
+        autenticationPresenter.onCreate();
     }
 
 }

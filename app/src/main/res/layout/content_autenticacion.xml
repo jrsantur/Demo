@@ -138,4 +138,12 @@
 
     </android.support.design.widget.TextInputLayout>
 
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/content_clave"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/progressBar" />
+
 </RelativeLayout>

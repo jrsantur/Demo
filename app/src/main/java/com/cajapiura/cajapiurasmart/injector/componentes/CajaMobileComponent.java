@@ -2,6 +2,7 @@ package com.cajapiura.cajapiurasmart.injector.componentes;
 
 import android.content.Context;
 
+import com.cajapiura.cajapiurasmart.views.activities.AutenticacionActivity;
 import com.cajapiura.cajapiurasmart.views.activities.MainActivity;
 import com.cajapiura.cajapiurasmart.injector.Activity;
 import com.cajapiura.cajapiurasmart.injector.modulos.ActivityModule;
@@ -16,9 +17,8 @@ import dagger.Component;
 @Component(dependencies = AppComponent.class, modules = {ActivityModule.class})
 public interface CajaMobileComponent extends ActivityComponent {
 
-    public interface AvengersComponent extends ActivityComponent {
-        void inject (MainActivity activity);
+        void inject (AutenticacionActivity activity);
+
         Context activityContext();
-    }
 
 }
